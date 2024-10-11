@@ -1,0 +1,12 @@
+
+<!-- Configuration for Hibernate hash -->
+
+<ehcache>
+    <cache name="com.storecrm.entity.Product"
+           maxEntriesLocalHeap="1000"
+           timeToLiveSeconds="300"/>
+
+    <cache name="com.storecrm.entity.Customer"
+           maxEntriesLocalHeap="500"
+           timeToLiveSeconds="300"/>
+</ehcache>
