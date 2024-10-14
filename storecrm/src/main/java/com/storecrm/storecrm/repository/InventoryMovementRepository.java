@@ -24,4 +24,5 @@ public interface InventoryMovementRepository extends JpaRepository<InventoryMove
     List<InventoryMovement> findByDateBetween(LocalDateTime startDate, LocalDateTime endDate);
 
     List<InventoryMovement> findByUserId(Long userId);
+
 }
