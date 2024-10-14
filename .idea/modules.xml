@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/storecrm.iml" filepath="$PROJECT_DIR$/.idea/storecrm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/storecrm/storecrm.iml" filepath="$PROJECT_DIR$/storecrm/storecrm.iml" />
     </modules>
   </component>
 </project>
