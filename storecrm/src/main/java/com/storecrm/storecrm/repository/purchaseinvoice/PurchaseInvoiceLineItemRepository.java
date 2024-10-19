@@ -1,6 +1,6 @@
-package com.storecrm.storecrm.repository;
+package com.storecrm.storecrm.repository.purchaseinvoice;
 
-import com.storecrm.storecrm.model.PurchaseInvoiceLineItem;
+import com.storecrm.storecrm.model.purchaseinvoice.PurchaseInvoiceLineItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

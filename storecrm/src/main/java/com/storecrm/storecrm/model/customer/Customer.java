@@ -1,5 +1,6 @@
-package com.storecrm.storecrm.model;
+package com.storecrm.storecrm.model.customer;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -17,8 +18,10 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Builder
 @Entity
 @Table(name = "customer")
+@Schema(description = "Represents a customer in the system.")
 public class Customer {
 
     /**
@@ -28,6 +31,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @Schema(description = "The unique identifier for the customer", example = "1", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     /**
@@ -37,6 +41,7 @@ public class Customer {
     @NotNull
     @Size(max = 255)
     @Column(name = "name", nullable = false)
+    @Schema(description = "The name of the customer", example = "John Doe", requiredMode = Schema.RequiredMode.REQUIRED)
     private String name;
 
     /**
@@ -46,6 +51,7 @@ public class Customer {
     @NotNull
     @Email
     @Column(name = "email", nullable = false, unique = true)
+    @Schema(description = "The email address of the customer. Must be unique.", example = "john.doe@example.com", requiredMode = Schema.RequiredMode.REQUIRED)
     private String email;
 
     /**
@@ -53,6 +59,7 @@ public class Customer {
      */
     @Size(max = 20)
     @Column(name = "phone")
+    @Schema(description = "The phone number of the customer", example = "+1234567890")
     private String phone;
 
     /**
@@ -60,6 +67,7 @@ public class Customer {
      */
     @Size(max = 255)
     @Column(name = "address")
+    @Schema(description = "The address of the customer", example = "123 Main St, Springfield")
     private String address;
 
     /**

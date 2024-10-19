@@ -1,5 +1,7 @@
-package com.storecrm.storecrm.model;
+package com.storecrm.storecrm.model.purchaseinvoice;
 
+import com.storecrm.storecrm.model.product.Product;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -18,6 +20,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "purchase_invoice_line_item")
+@Schema(description = "Represents a line item in a purchase invoice, containing product details and quantity.")
 public class PurchaseInvoiceLineItem {
 
     /**
@@ -27,6 +30,7 @@ public class PurchaseInvoiceLineItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @Schema(description = "The unique identifier of the purchase invoice line item.", example = "1")
     private Long id;
 
     /**
@@ -36,7 +40,8 @@ public class PurchaseInvoiceLineItem {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "invoice_id", nullable = false, foreignKey = @ForeignKey(name = "fk_purchase_invoice_line_item_invoice"))
-    @ToString.Include(name = "invoice") // Include invoice in toString()
+    @ToString.Include(name = "invoice")
+    @Schema(description = "The purchase invoice to which this line item belongs.")
     private PurchaseInvoice invoice;
 
     /**
@@ -46,7 +51,8 @@ public class PurchaseInvoiceLineItem {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(name = "fk_purchase_invoice_line_item_product"))
-    @ToString.Include(name = "product") // Include product in toString()
+    @ToString.Include(name = "product")
+    @Schema(description = "The product associated with this line item.")
     private Product product;
 
     /**
@@ -56,6 +62,7 @@ public class PurchaseInvoiceLineItem {
     @NotNull
     @Positive
     @Column(name = "quantity", nullable = false)
+    @Schema(description = "The quantity of the product.", example = "5")
     private Integer quantity;
 
     /**
@@ -65,7 +72,11 @@ public class PurchaseInvoiceLineItem {
     @NotNull
     @Positive
     @Column(name = "price", nullable = false)
+    @Schema(description = "The price of the product in this line item.", example = "15.99")
     private Double price;
+
+    // Equals and hashCode methods...
+
 
     /**
      * Determines whether two PurchaseInvoiceLineItem objects are equal based on their ID.

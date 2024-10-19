@@ -8,6 +8,7 @@ class StorecrmApplicationTests {
 
 	@Test
 	void contextLoads() {
+
 	}
 
 }

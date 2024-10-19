@@ -1,5 +1,8 @@
-package com.storecrm.storecrm.model;
+package com.storecrm.storecrm.model.returninvoise;
 
+import com.storecrm.storecrm.model.supplier.Supplier;
+import com.storecrm.storecrm.model.user.User;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -18,6 +21,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "return_invoice")
+@Schema(description = "Represents a return invoice for goods returned to suppliers.")
 public class ReturnInvoice {
 
     /**
@@ -27,6 +31,7 @@ public class ReturnInvoice {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @Schema(description = "The unique identifier of the return invoice.", example = "1")
     private Long id;
 
     /**
@@ -35,6 +40,7 @@ public class ReturnInvoice {
      */
     @NotNull
     @Column(name = "date", nullable = false)
+    @Schema(description = "The date of the return invoice.", example = "2024-10-17")
     private java.sql.Timestamp date;
 
     /**
@@ -44,7 +50,8 @@ public class ReturnInvoice {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false, foreignKey = @ForeignKey(name = "fk_return_invoice_supplier"))
-    @ToString.Include(name = "supplier") // Include supplier in toString()
+    @Schema(description = "The supplier associated with this return invoice.")
+    @ToString.Include(name = "supplier")
     private Supplier supplier;
 
     /**
@@ -54,6 +61,7 @@ public class ReturnInvoice {
     @NotNull
     @Positive
     @Column(name = "total_amount", nullable = false)
+    @Schema(description = "The total amount for the return invoice.", example = "150.75")
     private Double totalAmount;
 
     /**
@@ -62,6 +70,7 @@ public class ReturnInvoice {
      */
     @NotNull
     @Column(name = "status", nullable = false)
+    @Schema(description = "The status of the return invoice.", example = "Pending")
     private String status;
 
     /**
@@ -71,7 +80,8 @@ public class ReturnInvoice {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "created_by", nullable = false, foreignKey = @ForeignKey(name = "fk_return_invoice_user"))
-    @ToString.Include(name = "createdBy") // Include createdBy in toString()
+    @Schema(description = "The user who created this return invoice.")
+    @ToString.Include(name = "createdBy")
     private User createdBy;
 
     /**
@@ -81,6 +91,7 @@ public class ReturnInvoice {
      * @return true if the return invoices have the same ID, false otherwise.
      */
     @Override
+    @Schema(hidden = true)
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
@@ -95,6 +106,7 @@ public class ReturnInvoice {
      * @return hash code for the return invoice.
      */
     @Override
+    @Schema(hidden = true)
     public final int hashCode() {
         return Objects.hash(getId());
     }

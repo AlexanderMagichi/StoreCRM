@@ -1,5 +1,7 @@
-package com.storecrm.storecrm.model;
+package com.storecrm.storecrm.model.supplier;
 
+import com.storecrm.storecrm.model.product.Product;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -18,6 +20,7 @@ import java.util.Set;
 @ToString
 @Entity
 @Table(name = "supplier")
+@Schema(description = "Represents a supplier providing products to the store.")
 public class Supplier {
 
     /**
@@ -27,6 +30,7 @@ public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @Schema(description = "The unique identifier of the supplier.", example = "1")
     private Long id;
 
     /**
@@ -35,6 +39,7 @@ public class Supplier {
      */
     @NotNull
     @Column(name = "name", nullable = false)
+    @Schema(description = "The name of the supplier.", example = "ABC Supplies Ltd.")
     private String name;
 
     /**
@@ -42,6 +47,7 @@ public class Supplier {
      * This field is optional.
      */
     @Column(name = "address")
+    @Schema(description = "The address of the supplier.", example = "123 Market Street, Cityville")
     private String address;
 
     /**
@@ -50,6 +56,7 @@ public class Supplier {
      */
     @NotNull
     @Column(name = "email", nullable = false, unique = true)
+    @Schema(description = "The email address of the supplier.", example = "supplier@example.com")
     private String email;
 
     /**
@@ -57,6 +64,7 @@ public class Supplier {
      * This field is optional.
      */
     @Column(name = "phone")
+    @Schema(description = "The phone number of the supplier.", example = "+123456789")
     private String phone;
 
     /**
@@ -65,6 +73,7 @@ public class Supplier {
      */
     @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude // Avoid circular reference in toString()
+    @Schema(description = "The list of products supplied by this supplier.")
     private Set<Product> products;
 
     /**
@@ -74,6 +83,7 @@ public class Supplier {
      * @return true if the suppliers have the same ID, false otherwise.
      */
     @Override
+    @Schema(hidden = true)
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
@@ -88,6 +98,7 @@ public class Supplier {
      * @return hash code for the supplier.
      */
     @Override
+    @Schema(hidden = true)
     public final int hashCode() {
         return Objects.hash(getId());
     }

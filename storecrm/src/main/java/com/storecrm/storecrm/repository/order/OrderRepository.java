@@ -1,6 +1,6 @@
-package com.storecrm.storecrm.repository;
+package com.storecrm.storecrm.repository.order;
 
-import com.storecrm.storecrm.model.Order;
+import com.storecrm.storecrm.model.order.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
