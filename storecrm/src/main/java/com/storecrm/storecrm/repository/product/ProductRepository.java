@@ -1,6 +1,6 @@
-package com.storecrm.storecrm.repository;
+package com.storecrm.storecrm.repository.product;
 
-import com.storecrm.storecrm.model.Product;
+import com.storecrm.storecrm.model.product.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

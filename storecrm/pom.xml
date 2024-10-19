@@ -83,18 +83,11 @@
             <version>3.3.4</version>
         </dependency>
 
-        <!-- Swagger Annotations -->
-        <dependency>
-            <groupId>io.swagger.core.v3</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <version>2.2.23</version>
-        </dependency>
-
-        <!-- Swagger UI -->
+        <!-- SpringDoc OpenAPI -->
         <dependency>
             <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.1.0</version>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.14</version>
         </dependency>
 
         <!-- Hibernate -->
@@ -110,7 +103,6 @@
             <artifactId>ehcache</artifactId>
             <version>3.10.0</version>
         </dependency>
-
 
     </dependencies>
 
@@ -130,6 +122,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>

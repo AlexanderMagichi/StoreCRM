@@ -1,6 +1,6 @@
-package com.storecrm.storecrm.repository;
+package com.storecrm.storecrm.repository.customer;
 
-import com.storecrm.storecrm.model.Customer;
+import com.storecrm.storecrm.model.customer.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

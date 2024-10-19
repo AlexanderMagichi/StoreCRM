@@ -1,5 +1,6 @@
-package com.storecrm.storecrm.model;
+package com.storecrm.storecrm.model.returninvoise;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -14,10 +15,11 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
+@AllArgsConstructor // Используем аннотацию для автогенерации конструктора
 @ToString
 @Entity
 @Table(name = "return_item")
+@Schema(description = "Represents a return of a product from an order.")
 public class Return {
 
     /**
@@ -27,6 +29,7 @@ public class Return {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @Schema(description = "Unique identifier of the return.", example = "1")
     private Long id;
 
     /**
@@ -35,6 +38,7 @@ public class Return {
      */
     @NotNull
     @Column(name = "order_id", nullable = false)
+    @Schema(description = "The ID of the order from which this return is made.", example = "12345")
     private Long orderId;
 
     /**
@@ -43,6 +47,7 @@ public class Return {
      */
     @NotNull
     @Column(name = "product_id", nullable = false)
+    @Schema(description = "The ID of the product being returned.", example = "98765")
     private Long productId;
 
     /**
@@ -51,6 +56,7 @@ public class Return {
      */
     @NotNull
     @Column(name = "quantity", nullable = false)
+    @Schema(description = "The quantity of the product being returned.", example = "2")
     private Integer quantity;
 
     /**
@@ -59,6 +65,7 @@ public class Return {
      */
     @NotNull
     @Column(name = "reason", nullable = false)
+    @Schema(description = "The reason for the return.", example = "Defective item")
     private String reason;
 
     /**
@@ -67,6 +74,7 @@ public class Return {
      */
     @NotNull
     @Column(name = "return_date", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    @Schema(description = "The date and time when the return was made.", example = "2024-10-15T15:30:00")
     private LocalDateTime returnDate;
 
     /**
@@ -75,6 +83,7 @@ public class Return {
      */
     @NotNull
     @Column(name = "purchase_invoice_id", nullable = false)
+    @Schema(description = "The ID of the associated purchase invoice.", example = "56789")
     private Long purchaseInvoiceId;
 
     /**
@@ -84,6 +93,7 @@ public class Return {
      * @return true if the returns have the same ID, false otherwise.
      */
     @Override
+    @Schema(hidden = true)
     public final boolean equals(Object o) {
         if (this == o) return true;
         if (o == null) return false;
@@ -98,6 +108,7 @@ public class Return {
      * @return hash code for the return.
      */
     @Override
+    @Schema(hidden = true)
     public final int hashCode() {
         return Objects.hash(getId());
     }

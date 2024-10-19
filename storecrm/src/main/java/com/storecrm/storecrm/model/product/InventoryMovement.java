@@ -1,5 +1,6 @@
-package com.storecrm.storecrm.model;
+package com.storecrm.storecrm.model.product;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -18,6 +19,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "inventory_movement")
+@Schema(description = "Represents an inventory movement in the system, recording changes in inventory for products.")
 public class InventoryMovement {
 
     /**
@@ -27,6 +29,7 @@ public class InventoryMovement {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @Schema(description = "The unique identifier for the inventory movement", example = "1001", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     /**
@@ -35,6 +38,7 @@ public class InventoryMovement {
      */
     @NotNull
     @Column(name = "product_id", nullable = false)
+    @Schema(description = "The product ID associated with this inventory movement", example = "2001", requiredMode = Schema.RequiredMode.REQUIRED)
     private Long productId;
 
     /**
@@ -43,6 +47,7 @@ public class InventoryMovement {
      */
     @NotNull
     @Column(name = "movement_date", nullable = false)
+    @Schema(description = "The date of the inventory movement", example = "2024-10-15T12:30:00", requiredMode = Schema.RequiredMode.REQUIRED)
     private java.sql.Timestamp movementDate;
 
     /**
@@ -51,6 +56,7 @@ public class InventoryMovement {
      */
     @NotNull
     @Column(name = "quantity", nullable = false)
+    @Schema(description = "The quantity involved in the inventory movement", example = "50", requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer quantity;
 
     /**
@@ -60,6 +66,7 @@ public class InventoryMovement {
     @NotNull
     @Size(max = 10)
     @Column(name = "movement_type", nullable = false)
+    @Schema(description = "The type of movement (e.g., ARRIVAL, SALE, RETURN)", example = "ARRIVAL", requiredMode = Schema.RequiredMode.REQUIRED)
     private String movementType;
 
     /**
@@ -68,6 +75,7 @@ public class InventoryMovement {
      */
     @Size(max = 255)
     @Column(name = "description")
+    @Schema(description = "A description of the inventory movement", example = "Arrival of 50 units of product")
     private String description;
 
     /**
@@ -77,6 +85,7 @@ public class InventoryMovement {
     @NotNull
     @Size(max = 50)
     @Column(name = "reference_type", nullable = false)
+    @Schema(description = "The type of reference for this movement (e.g., PurchaseInvoice, ReturnInvoice)", example = "PurchaseInvoice", requiredMode = Schema.RequiredMode.REQUIRED)
     private String referenceType;
 
     /**
@@ -84,6 +93,7 @@ public class InventoryMovement {
      * This field is optional.
      */
     @Column(name = "reference_id")
+    @Schema(description = "The ID of the referenced entity (e.g., invoice or order)", example = "3001")
     private Long referenceId;
 
     /**
@@ -92,6 +102,7 @@ public class InventoryMovement {
      */
     @Size(max = 255)
     @Column(name = "comment")
+    @Schema(description = "Any additional comments related to the inventory movement", example = "Initial stock adjustment")
     private String comment;
 
     /**

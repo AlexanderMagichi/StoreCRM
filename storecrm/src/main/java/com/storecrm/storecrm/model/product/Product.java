@@ -1,5 +1,7 @@
-package com.storecrm.storecrm.model;
+package com.storecrm.storecrm.model.product;
 
+import com.storecrm.storecrm.model.supplier.Supplier;
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -19,6 +21,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "product")
+@Schema(description = "Represents a product in the store's inventory, storing information about the product's price, stock, and supplier.")
 public class Product {
 
     /**
@@ -28,6 +31,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @Schema(description = "The unique identifier for the product", example = "1001", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     /**
@@ -36,6 +40,7 @@ public class Product {
      */
     @NotNull
     @Column(name = "art", nullable = false, unique = true)
+    @Schema(description = "The article number (art) of the product", example = "ART12345", requiredMode = Schema.RequiredMode.REQUIRED)
     private String art;
 
     /**
@@ -44,6 +49,7 @@ public class Product {
      */
     @NotNull
     @Column(name = "name", nullable = false)
+    @Schema(description = "The name of the product", example = "Laptop Pro", requiredMode = Schema.RequiredMode.REQUIRED)
     private String name;
 
     /**
@@ -52,6 +58,7 @@ public class Product {
      */
     @Lob
     @Column(name = "description")
+    @Schema(description = "A detailed description of the product", example = "High-performance laptop with 16GB RAM and 1TB SSD")
     private String description;
 
     /**
@@ -60,6 +67,7 @@ public class Product {
      */
     @NotNull
     @Column(name = "price", nullable = false)
+    @Schema(description = "The price of the product", example = "1499.99", requiredMode = Schema.RequiredMode.REQUIRED)
     private BigDecimal price;
 
     /**
@@ -68,6 +76,7 @@ public class Product {
      */
     @NotNull
     @Column(name = "stock", nullable = false)
+    @Schema(description = "The current stock level of the product", example = "50", requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer stock;
 
     /**
@@ -76,6 +85,7 @@ public class Product {
      */
     @NotNull
     @Column(name = "last_updated", nullable = false)
+    @Schema(description = "The date and time when the product was last updated", example = "2024-10-15 12:00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     private String lastUpdated;
 
     /**
@@ -85,6 +95,7 @@ public class Product {
     @NotNull
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false, foreignKey = @ForeignKey(name = "fk_product_supplier"))
+    @Schema(description = "The supplier associated with this product", requiredMode = Schema.RequiredMode.REQUIRED)
     private Supplier supplier;
 
     /**

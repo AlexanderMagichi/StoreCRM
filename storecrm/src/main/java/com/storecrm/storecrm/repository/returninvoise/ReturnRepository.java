@@ -1,6 +1,6 @@
-package com.storecrm.storecrm.repository;
+package com.storecrm.storecrm.repository.returninvoise;
 
-import com.storecrm.storecrm.model.Return;
+import com.storecrm.storecrm.model.returninvoise.Return;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

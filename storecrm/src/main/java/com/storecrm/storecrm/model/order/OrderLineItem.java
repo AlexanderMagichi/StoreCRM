@@ -1,5 +1,6 @@
-package com.storecrm.storecrm.model;
+package com.storecrm.storecrm.model.order;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -17,6 +18,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "order_line_item")
+@Schema(description = "Represents an item in an order, storing information about products included in customer orders.")
 public class OrderLineItem {
 
     /**
@@ -26,6 +28,7 @@ public class OrderLineItem {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
+    @Schema(description = "The unique identifier for the order line item", example = "5001", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     /**
@@ -34,6 +37,7 @@ public class OrderLineItem {
      */
     @NotNull
     @Column(name = "order_id", nullable = false)
+    @Schema(description = "The ID of the order to which this line item belongs", example = "1001", requiredMode = Schema.RequiredMode.REQUIRED)
     private Long orderId;
 
     /**
@@ -42,6 +46,7 @@ public class OrderLineItem {
      */
     @NotNull
     @Column(name = "product_id", nullable = false)
+    @Schema(description = "The ID of the product associated with this line item", example = "3001", requiredMode = Schema.RequiredMode.REQUIRED)
     private Long productId;
 
     /**
@@ -50,6 +55,7 @@ public class OrderLineItem {
      */
     @NotNull
     @Column(name = "quantity", nullable = false)
+    @Schema(description = "The quantity of the product ordered", example = "2", requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer quantity;
 
     /**
@@ -58,6 +64,7 @@ public class OrderLineItem {
      */
     @NotNull
     @Column(name = "price", nullable = false)
+    @Schema(description = "The price of the product at the time of the order", example = "29.99", requiredMode = Schema.RequiredMode.REQUIRED)
     private Double price;
 
     /**
