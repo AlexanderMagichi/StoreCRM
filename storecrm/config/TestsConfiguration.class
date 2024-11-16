@@ -1,0 +1,15 @@
+package com.storecrm.storecrm.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.boot.test.context.TestConfiguration;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import com.storecrm.storecrm.repository.supplier.SupplierRepository;
+
+@TestConfiguration
+public class TestsConfiguration {
+
+    @MockBean
+    private SupplierRepository supplierRepository;
+
+}

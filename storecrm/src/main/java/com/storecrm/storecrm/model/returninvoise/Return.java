@@ -15,7 +15,8 @@ import java.util.Objects;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor // Используем аннотацию для автогенерации конструктора
+@AllArgsConstructor
+@Builder
 @ToString
 @Entity
 @Table(name = "return_item")

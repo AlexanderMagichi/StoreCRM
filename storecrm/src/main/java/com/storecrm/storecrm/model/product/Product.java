@@ -8,6 +8,7 @@ import lombok.*;
 import org.hibernate.proxy.HibernateProxy;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
@@ -16,6 +17,7 @@ import java.util.Objects;
  */
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -86,7 +88,7 @@ public class Product {
     @NotNull
     @Column(name = "last_updated", nullable = false)
     @Schema(description = "The date and time when the product was last updated", example = "2024-10-15 12:00:00", requiredMode = Schema.RequiredMode.REQUIRED)
-    private String lastUpdated;
+    private LocalDateTime lastUpdated;
 
     /**
      * The supplier associated with this product.
