@@ -11,7 +11,7 @@ import lombok.*;
 import java.util.Objects;
 
 /**
- * Represents a return invoice in the system.
+ * Represents a returnfromcustomer invoice in the system.
  * This entity stores information about returns from suppliers.
  */
 @Getter
@@ -22,66 +22,66 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "return_invoice")
-@Schema(description = "Represents a return invoice for goods returned to suppliers.")
+@Schema(description = "Represents a returnfromcustomer invoice for goods returned to suppliers.")
 public class ReturnInvoice {
 
     /**
-     * The unique identifier for the return invoice.
+     * The unique identifier for the returnfromcustomer invoice.
      * Generated automatically by the database.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    @Schema(description = "The unique identifier of the return invoice.", example = "1")
+    @Schema(description = "The unique identifier of the returnfromcustomer invoice.", example = "1")
     private Long id;
 
     /**
-     * The date of the return invoice.
+     * The date of the returnfromcustomer invoice.
      * Automatically set to the current timestamp.
      */
     @NotNull
     @Column(name = "date", nullable = false)
-    @Schema(description = "The date of the return invoice.", example = "2024-10-17")
+    @Schema(description = "The date of the returnfromcustomer invoice.", example = "2024-10-17")
     private java.sql.Timestamp date;
 
     /**
-     * The supplier associated with this return invoice.
+     * The supplier associated with this returnfromcustomer invoice.
      * This is a required field.
      */
     @NotNull
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false, foreignKey = @ForeignKey(name = "fk_return_invoice_supplier"))
-    @Schema(description = "The supplier associated with this return invoice.")
+    @Schema(description = "The supplier associated with this returnfromcustomer invoice.")
     @ToString.Include(name = "supplier")
     private Supplier supplier;
 
     /**
-     * The total amount for this return invoice.
+     * The total amount for this returnfromcustomer invoice.
      * This is a required field and must be positive.
      */
     @NotNull
     @Positive
     @Column(name = "total_amount", nullable = false)
-    @Schema(description = "The total amount for the return invoice.", example = "150.75")
+    @Schema(description = "The total amount for the returnfromcustomer invoice.", example = "150.75")
     private Double totalAmount;
 
     /**
-     * The status of the return invoice.
+     * The status of the returnfromcustomer invoice.
      * This is a required field and must be one of the specified values.
      */
     @NotNull
     @Column(name = "status", nullable = false)
-    @Schema(description = "The status of the return invoice.", example = "Pending")
+    @Schema(description = "The status of the returnfromcustomer invoice.", example = "Pending")
     private String status;
 
     /**
-     * The user who created this return invoice.
+     * The user who created this returnfromcustomer invoice.
      * This is a required field.
      */
     @NotNull
     @ManyToOne
     @JoinColumn(name = "created_by", nullable = false, foreignKey = @ForeignKey(name = "fk_return_invoice_user"))
-    @Schema(description = "The user who created this return invoice.")
+    @Schema(description = "The user who created this returnfromcustomer invoice.")
     @ToString.Include(name = "createdBy")
     private User createdBy;
 
@@ -89,7 +89,7 @@ public class ReturnInvoice {
      * Determines whether two ReturnInvoice objects are equal based on their ID.
      *
      * @param o the other object to compare to.
-     * @return true if the return invoices have the same ID, false otherwise.
+     * @return true if the returnfromcustomer invoices have the same ID, false otherwise.
      */
     @Override
     @Schema(hidden = true)
@@ -102,9 +102,9 @@ public class ReturnInvoice {
     }
 
     /**
-     * Generates a hash code based on the ID of the return invoice.
+     * Generates a hash code based on the ID of the returnfromcustomer invoice.
      *
-     * @return hash code for the return invoice.
+     * @return hash code for the returnfromcustomer invoice.
      */
     @Override
     @Schema(hidden = true)

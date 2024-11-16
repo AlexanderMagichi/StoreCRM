@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
- * Represents a return of a product from an order.
+ * Represents a returnfromcustomer of a product from an order.
  * This entity stores information about returns made by customers.
  */
 @Getter
@@ -20,26 +20,26 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "return_item")
-@Schema(description = "Represents a return of a product from an order.")
+@Schema(description = "Represents a returnfromcustomer of a product from an order.")
 public class Return {
 
     /**
-     * The unique identifier for the return.
+     * The unique identifier for the returnfromcustomer.
      * Generated automatically by the database.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    @Schema(description = "Unique identifier of the return.", example = "1")
+    @Schema(description = "Unique identifier of the returnfromcustomer.", example = "1")
     private Long id;
 
     /**
-     * The ID of the order from which this return is made.
+     * The ID of the order from which this returnfromcustomer is made.
      * This field is required.
      */
     @NotNull
     @Column(name = "order_id", nullable = false)
-    @Schema(description = "The ID of the order from which this return is made.", example = "12345")
+    @Schema(description = "The ID of the order from which this returnfromcustomer is made.", example = "12345")
     private Long orderId;
 
     /**
@@ -61,21 +61,21 @@ public class Return {
     private Integer quantity;
 
     /**
-     * The reason for the return.
+     * The reason for the returnfromcustomer.
      * This field is required.
      */
     @NotNull
     @Column(name = "reason", nullable = false)
-    @Schema(description = "The reason for the return.", example = "Defective item")
+    @Schema(description = "The reason for the returnfromcustomer.", example = "Defective item")
     private String reason;
 
     /**
-     * The date and time when the return was made.
+     * The date and time when the returnfromcustomer was made.
      * This field is required and is set to the current timestamp by default.
      */
     @NotNull
     @Column(name = "return_date", nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    @Schema(description = "The date and time when the return was made.", example = "2024-10-15T15:30:00")
+    @Schema(description = "The date and time when the returnfromcustomer was made.", example = "2024-10-15T15:30:00")
     private LocalDateTime returnDate;
 
     /**
@@ -104,9 +104,9 @@ public class Return {
     }
 
     /**
-     * Generates a hash code based on the ID of the return.
+     * Generates a hash code based on the ID of the returnfromcustomer.
      *
-     * @return hash code for the return.
+     * @return hash code for the returnfromcustomer.
      */
     @Override
     @Schema(hidden = true)

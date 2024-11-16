@@ -10,12 +10,12 @@
             timeToLiveSeconds="300"
             memoryStoreEvictionPolicy="LRU"/> <!-- Eviction policy to use when the cache is full -->
 
-    <!-- Cache for Product entity -->
+    <!-- Cache for ProductDTO entity -->
     <cache name="com.storecrm.entity.Product"
            maxEntriesLocalHeap="1000"
            timeToLiveSeconds="300"
            eternal="false"
-           memoryStoreEvictionPolicy="LRU"/> <!-- Cache for Product entity -->
+           memoryStoreEvictionPolicy="LRU"/> <!-- Cache for ProductDTO entity -->
 
     <!-- Cache for Customer entity -->
     <cache name="com.storecrm.entity.Customer"
