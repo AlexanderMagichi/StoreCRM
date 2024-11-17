@@ -1,6 +1,6 @@
 package com.storecrm.storecrm.repository.product;
 
-import com.storecrm.storecrm.model.product.InventoryMovement;
+import com.storecrm.storecrm.model.inventorymovement.InventoryMovement;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
