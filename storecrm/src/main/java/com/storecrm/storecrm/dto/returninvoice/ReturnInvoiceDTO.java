@@ -29,4 +29,14 @@ public class ReturnInvoiceDTO {
 
     @NotNull(message = "Created by cannot be null")
     private Long createdBy;
+
+    // Constructor with parameters
+    public ReturnInvoiceDTO(Long id, LocalDateTime date, Long supplierId, BigDecimal totalAmount, String status, Long createdBy) {
+        this.id = id;
+        this.date = date;
+        this.supplierId = supplierId;
+        this.totalAmount = totalAmount;
+        this.status = status;
+        this.createdBy = createdBy;
+    }
 }

@@ -6,8 +6,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.Optional;
 
-
-
 /**
  * Mapper for converting Product entity to ProductDTO and vice versa.
  */
@@ -15,18 +13,36 @@ import java.util.Optional;
 public class ProductMapper {
 
     /**
-     * Converts a Product entity to an Optional<ProductDTO.Public>.
+     * Converts a Product entity to a ProductDTO.
      *
      * @param product the Product entity.
-     * @return Optional containing the public DTO of the product, or Optional.empty if product is null.
+     * @return ProductDTO.ProductResponse if product is not null.
      */
-    public Optional<ProductDTO.ProductResponse> toDTO(Product product) {
-        return Optional.ofNullable(product)
-                .map(p -> ProductDTO.ProductResponse.builder()
-                        .id(p.getId())
-                        .name(p.getName())
-                        .price(p.getPrice())
-                        .build());
+    public ProductDTO.ProductResponse toDTO(Product product) {
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null");
+        }
+        return ProductDTO.ProductResponse.builder()
+                .id(product.getId())
+                .name(product.getName())
+                .price(product.getPrice())
+                .build();
+    }
+
+    /**
+     * Converts a ProductDTO.Create to a Product entity.
+     *
+     * @param productDTO the DTO for product creation.
+     * @return the Product entity.
+     */
+    public Product toEntity(ProductDTO.Create productDTO) {
+        if (productDTO == null) {
+            throw new IllegalArgumentException("ProductDTO cannot be null");
+        }
+        return Product.builder()
+                .name(productDTO.getName())
+                .price(productDTO.getPrice())
+                .build();
     }
 
     /**
@@ -36,9 +52,6 @@ public class ProductMapper {
      * @return Optional containing the Product entity, or Optional.empty if productDTO is empty.
      */
     public Optional<Product> toEntity(Optional<ProductDTO.Create> productDTO) {
-        return productDTO.map(dto -> Product.builder()
-                .name(dto.getName())
-                .price(dto.getPrice())
-                .build());
+        return productDTO.map(this::toEntity); // Reusing the previous method to avoid duplication
     }
 }

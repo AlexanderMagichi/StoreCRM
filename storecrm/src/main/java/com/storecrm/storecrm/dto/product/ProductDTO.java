@@ -5,8 +5,10 @@ import java.time.LocalDateTime;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 
 @Data
 @NoArgsConstructor
@@ -41,4 +43,32 @@ public class ProductDTO {
 
     @Size(max = 100, message = "Supplier name cannot exceed 100 characters")
     private String supplierName;
+
+    @Data
+    @NoArgsConstructor
+    @Builder
+    public static class ProductResponse {
+        private Long id;
+        private String name;
+        private BigDecimal price;
+
+        public ProductResponse(Long id, String name, BigDecimal price) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+        }
+    }
+
+    @Data
+    @NoArgsConstructor
+    @Builder
+    public static class Create {
+        private String name;
+        private BigDecimal price;
+
+        public Create(String name, BigDecimal price) {
+            this.name = name;
+            this.price = price;
+        }
+    }
 }

@@ -44,19 +44,20 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- spring-context -->
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
             <version>6.2.0</version>
         </dependency>
 
-        <!-- spring-security-web -->
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-web -->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
             <version>6.3.4</version>
         </dependency>
+
 
         <!-- MySQL Connector -->
         <dependency>
@@ -95,6 +96,12 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+        <dependency>
+        <groupId>org.mapstruct</groupId>
+        <artifactId>mapstruct</artifactId>
+        <version>1.6.3</version>
+    </dependency>
 
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -180,6 +187,11 @@
                             <artifactId>lombok</artifactId>
                             <version>1.18.34</version>
                         </path>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.6.3</version>
+                        </path>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
@@ -190,4 +202,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

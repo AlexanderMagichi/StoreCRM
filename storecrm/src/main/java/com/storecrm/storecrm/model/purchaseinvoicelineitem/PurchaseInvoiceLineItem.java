@@ -1,6 +1,7 @@
-package com.storecrm.storecrm.model.purchaseinvoice;
+package com.storecrm.storecrm.model.purchaseinvoicelineitem;
 
 import com.storecrm.storecrm.model.product.Product;
+import com.storecrm.storecrm.model.purchaseinvoice.PurchaseInvoice;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -67,17 +68,34 @@ public class PurchaseInvoiceLineItem {
     private Integer quantity;
 
     /**
-     * The price of the product in this line item.
+     * The unit price of the product in this line item.
      * This is a required field and must be positive.
      */
     @NotNull
     @Positive
-    @Column(name = "price", nullable = false)
-    @Schema(description = "The price of the product in this line item.", example = "15.99")
-    private Double price;
+    @Column(name = "unit_price", nullable = false)
+    @Schema(description = "The unit price of the product in this line item.", example = "15.99")
+    private Double unitPrice;
+
+    /**
+     * The total amount of this line item (unit price * quantity).
+     */
+    @Transient
+    @Schema(description = "The total amount of the line item (unit price * quantity).", example = "79.95")
+    private Double totalAmount;
+
+    /**
+     * Calculates the total amount for this line item based on unit price and quantity.
+     * This method is used to calculate the totalAmount.
+     */
+    public Double getTotalAmount() {
+        if (unitPrice != null && quantity != null) {
+            return unitPrice * quantity;
+        }
+        return 0.0;
+    }
 
     // Equals and hashCode methods...
-
 
     /**
      * Determines whether two PurchaseInvoiceLineItem objects are equal based on their ID.

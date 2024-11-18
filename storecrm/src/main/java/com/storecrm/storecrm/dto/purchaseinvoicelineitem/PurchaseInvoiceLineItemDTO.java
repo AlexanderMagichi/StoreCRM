@@ -25,4 +25,17 @@ public class PurchaseInvoiceLineItemDTO {
     @NotNull(message = "Price cannot be null")
     @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
     private BigDecimal price;
+
+    @NotNull(message = "Total Amount cannot be null")
+    private BigDecimal totalAmount;
+
+    // Add constructor
+    public PurchaseInvoiceLineItemDTO(Long id, Long invoiceId, Long productId, Integer quantity, BigDecimal price, BigDecimal totalAmount) {
+        this.id = id;
+        this.invoiceId = invoiceId;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.price = price;
+        this.totalAmount = totalAmount;
+    }
 }

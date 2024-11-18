@@ -1,6 +1,7 @@
 package com.storecrm.storecrm.dto.supplier;
 
 import jakarta.validation.constraints.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,4 +24,35 @@ public class SupplierDTO {
 
     @Pattern(regexp = "^(\\+\\d{1,2}\\s?)?\\(?\\d{1,4}\\)?[\\s-]?\\d{1,4}[\\s-]?\\d{1,4}$", message = "Invalid phone number format")
     private String phone;
-}
+
+    @Builder
+    public SupplierDTO(Long id, String name, String address, String email, String phone) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.email = email;
+        this.phone = phone;
+    }
+
+        @Data
+        @NoArgsConstructor
+        @Builder
+        public static class SupplierResponse {
+            private Long id;
+            private String name;
+            private String address;
+            private String email;
+            private String phone;
+        }
+
+        @Data
+        @NoArgsConstructor
+        @Builder
+        public static class Create {
+            private String name;
+            private String address;
+            private String email;
+            private String phone;
+        }
+
+    }
