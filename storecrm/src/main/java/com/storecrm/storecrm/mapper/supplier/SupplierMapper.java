@@ -1,26 +1,24 @@
 package com.storecrm.storecrm.mapper.supplier;
 
+
 import com.storecrm.storecrm.dto.supplier.SupplierDTO;
 import com.storecrm.storecrm.model.supplier.Supplier;
 import org.springframework.stereotype.Component;
 
-/**
- * Mapper for converting Supplier entity to SupplierDTO and vice versa.
- */
 @Component
 public class SupplierMapper {
 
     /**
-     * Converts a Supplier entity to a SupplierDTO.
+     * Converts a Supplier entity to a SupplierResponse DTO.
      *
      * @param supplier the Supplier entity.
-     * @return the SupplierDTO.
+     * @return the SupplierResponse DTO.
      */
-    public SupplierDTO toDTO(Supplier supplier) {
+    public SupplierDTO.SupplierResponse toResponseDTO(Supplier supplier) {
         if (supplier == null) {
             throw new IllegalArgumentException("Supplier cannot be null");
         }
-        return SupplierDTO.builder()
+        return SupplierDTO.SupplierResponse.builder()
                 .id(supplier.getId())
                 .name(supplier.getName())
                 .address(supplier.getAddress())
@@ -30,20 +28,20 @@ public class SupplierMapper {
     }
 
     /**
-     * Converts a SupplierDTO to a Supplier entity.
+     * Converts a Create DTO to a Supplier entity.
      *
-     * @param supplierDTO the SupplierDTO.
+     * @param createDTO the Create DTO.
      * @return the Supplier entity.
      */
-    public Supplier toEntity(SupplierDTO supplierDTO) {
-        if (supplierDTO == null) {
-            throw new IllegalArgumentException("SupplierDTO cannot be null");
+    public Supplier toEntity(SupplierDTO.Create createDTO) {
+        if (createDTO == null) {
+            throw new IllegalArgumentException("Create DTO cannot be null");
         }
         return Supplier.builder()
-                .name(supplierDTO.getName())
-                .address(supplierDTO.getAddress())
-                .email(supplierDTO.getEmail())
-                .phone(supplierDTO.getPhone())
+                .name(createDTO.getName())
+                .address(createDTO.getAddress())
+                .email(createDTO.getEmail())
+                .phone(createDTO.getPhone())
                 .build();
     }
 }
