@@ -2,28 +2,33 @@
 <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd">
 
+    <!-- Disk Store Configuration -->
+    <diskStore path="java.io.tmpdir"/>
+
     <!-- Default Cache Configuration -->
     <defaultCache
             maxEntriesLocalHeap="1000"
             eternal="false"
             timeToIdleSeconds="600"
             timeToLiveSeconds="300"
-            memoryStoreEvictionPolicy="LRU"/> <!-- Eviction policy to use when the cache is full -->
+            memoryStoreEvictionPolicy="LRU"/>
 
-    <!-- Cache for ProductDTO entity -->
+    <!-- Cache for Product Entity -->
     <cache name="com.storecrm.entity.Product"
            maxEntriesLocalHeap="1000"
-           timeToLiveSeconds="300"
            eternal="false"
-           memoryStoreEvictionPolicy="LRU"/> <!-- Cache for ProductDTO entity -->
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LRU"
+           overflowToDisk="true"/>
 
-    <!-- Cache for Customer entity -->
+    <!-- Cache for Customer Entity -->
     <cache name="com.storecrm.entity.Customer"
            maxEntriesLocalHeap="500"
-           timeToLiveSeconds="300"
            eternal="false"
-           memoryStoreEvictionPolicy="LRU"/> <!-- Cache for Customer entity -->
-
-    <!-- Add other entity caches here as needed -->
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           memoryStoreEvictionPolicy="LRU"
+           overflowToDisk="true"/>
 
 </ehcache>
