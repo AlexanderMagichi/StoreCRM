@@ -5,6 +5,7 @@ import com.storecrm.storecrm.mapper.product.ProductMapper;
 import com.storecrm.storecrm.model.product.Product;
 import com.storecrm.storecrm.repository.product.ProductRepository;
 import jakarta.persistence.EntityNotFoundException;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -26,7 +27,15 @@ class ProductServiceTest {
     private ProductMapper productMapper;
 
     @InjectMocks
+    private ProductServiceImpl productServiceImpl;
+
     private ProductService productService;
+
+    // Инициализируем productService в методе @BeforeEach
+    @BeforeEach
+    void setup() {
+        productService = productServiceImpl;
+    }
 
     @Test
     void getProductById_shouldReturnProductResponse_whenProductExists() {

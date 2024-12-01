@@ -1,26 +1,54 @@
-<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd">
-    spring.jpa.properties.hibernate.cache.ehcache.config=classpath:ehcache.xml
+<!--<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--         xsi:noNamespaceSchemaLocation="http://www.ehcache.org/ehcache.xsd">-->
 
-    <diskStore path="java.io.tmpdir"/>
+<!--    &lt;!&ndash; Path for disk persistence &ndash;&gt;-->
+<!--    <diskStore path="java.io.tmpdir"/>-->
 
-    <defaultCache
-            maxEntriesLocalHeap="1000"
-            eternal="false"
-            timeToIdleSeconds="600"
-            timeToLiveSeconds="300"
-            memoryStoreEvictionPolicy="LRU"/>
+<!--    &lt;!&ndash; Default cache configuration &ndash;&gt;-->
+<!--    <defaultCache-->
+<!--            maxEntriesLocalHeap="1000"-->
+<!--            eternal="false"-->
+<!--            timeToIdleSeconds="600"-->
+<!--            timeToLiveSeconds="300"-->
+<!--            memoryStoreEvictionPolicy="LRU"/>-->
 
-    <cache name="com.storecrm.entity.Product"
-           maxEntriesLocalHeap="1000"
-           timeToLiveSeconds="300"
-           eternal="false"
-           memoryStoreEvictionPolicy="LRU"/>
+<!--    &lt;!&ndash; Cache for Product entity &ndash;&gt;-->
+<!--    <cache name="com.storecrm.entity.Product"-->
+<!--           maxEntriesLocalHeap="1000"-->
+<!--           timeToLiveSeconds="300"-->
+<!--           eternal="false"-->
+<!--           memoryStoreEvictionPolicy="LRU"/>-->
 
-    <cache name="com.storecrm.entity.Customer"
-           maxEntriesLocalHeap="500"
-           timeToLiveSeconds="300"
-           eternal="false"
-           memoryStoreEvictionPolicy="LRU"/>
+<!--    &lt;!&ndash; Cache for Customer entity &ndash;&gt;-->
+<!--    <cache name="com.storecrm.entity.Customer"-->
+<!--           maxEntriesLocalHeap="500"-->
+<!--           timeToLiveSeconds="300"-->
+<!--           eternal="false"-->
+<!--           memoryStoreEvictionPolicy="LRU"/>-->
+<!--</ehcache>-->
 
-</ehcache>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.ehcache.org/v3"
+        xsi:schemaLocation="http://www.ehcache.org/v3 http://www.ehcache.org/schema/ehcache-core.xsd">
+    <cache alias="default">
+        <expiry>
+            <ttl unit="seconds">600</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+
+    <cache alias="com.storecrm.entity.Product">
+        <expiry>
+            <ttl unit="seconds">300</ttl>
+        </expiry>
+        <heap unit="entries">1000</heap>
+    </cache>
+
+    <cache alias="com.storecrm.entity.Customer">
+        <expiry>
+            <ttl unit="seconds">300</ttl>
+        </expiry>
+        <heap unit="entries">500</heap>
+    </cache>
+</config>
+

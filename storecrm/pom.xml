@@ -73,11 +73,18 @@
 
 
         <!-- Hibernate Ehcache -->
-        <!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-ehcache</artifactId>-->
+<!--            <version>5.6.15.Final</version>-->
+<!--        </dependency>-->
+
+        <!-- https://mvnrepository.com/artifact/org.ehcache/ehcache -->
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-ehcache</artifactId>
-            <version>5.6.15.Final</version>
+            <groupId>org.ehcache</groupId>
+            <artifactId>ehcache</artifactId>
+            <version>3.10.8</version>
         </dependency>
 
 
@@ -88,6 +95,11 @@
             <version>2.0.1</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate.orm</groupId>
+            <artifactId>hibernate-jcache</artifactId>
+            <version>6.6.2.Final</version>
+        </dependency>
 
         <!-- Lombok -->
         <dependency>
