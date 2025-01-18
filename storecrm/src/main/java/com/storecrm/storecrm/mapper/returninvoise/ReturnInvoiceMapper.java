@@ -2,78 +2,45 @@ package com.storecrm.storecrm.mapper.returninvoise;
 
 import com.storecrm.storecrm.dto.returninvoice.ReturnInvoiceDTO;
 import com.storecrm.storecrm.model.returninvoise.ReturnInvoice;
-import com.storecrm.storecrm.model.supplier.Supplier;
-import com.storecrm.storecrm.model.user.User;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+import org.mapstruct.factory.Mappers;
 
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
+import java.util.List;
 
-@Component
-public class ReturnInvoiceMapper {
+/**
+ * Mapper to convert between ReturnInvoice and ReturnInvoiceDTO.
+ */
+@Mapper(componentModel = "spring")
+public interface ReturnInvoiceMapper {
 
-    /**
-     * Converts {@link ReturnInvoice} entity to DTO.
-     *
-     * @param returnInvoice entity to convert
-     * @return corresponding DTO
-     */
-    public ReturnInvoiceDTO toDTO(ReturnInvoice returnInvoice) {
-        if (returnInvoice == null) {
-            throw new IllegalArgumentException("ReturnInvoice cannot be null");
-        }
+    ReturnInvoiceMapper INSTANCE = Mappers.getMapper(ReturnInvoiceMapper.class);
 
-        return new ReturnInvoiceDTO(
-                returnInvoice.getId(),
-                convertTimestampToLocalDateTime(returnInvoice.getDate()),
-                returnInvoice.getSupplier() != null ? returnInvoice.getSupplier().getId() : null, // Get supplier ID
-                returnInvoice.getTotalAmount() != null ? BigDecimal.valueOf(returnInvoice.getTotalAmount()) : null, // Convert Double to BigDecimal
-                returnInvoice.getStatus(),
-                returnInvoice.getCreatedBy() != null ? returnInvoice.getCreatedBy().getId() : null // Get createdBy ID
-        );
-    }
+    @Mapping(source = "supplier", target = "supplier")
+    @Mapping(source = "createdBy", target = "createdBy")
+    ReturnInvoiceDTO toDto(ReturnInvoice returnInvoice);
+
+    @Mapping(source = "supplier", target = "supplier")
+    @Mapping(source = "createdBy", target = "createdBy")
+    ReturnInvoice toEntity(ReturnInvoiceDTO returnInvoiceDTO);
+
+
+
+    List<ReturnInvoiceDTO> toDtoList(List<ReturnInvoice> returnInvoices);
 
     /**
-     * Converts {@link ReturnInvoiceDTO} to entity.
+     * Updates the existing ReturnInvoice entity from the given ReturnInvoiceDTO.
      *
-     * @param returnInvoiceDTO DTO to convert
-     * @return corresponding entity
+     * @param returnInvoiceDTO the DTO containing the updated data
+     * @param returnInvoice the entity to be updated
      */
-    public ReturnInvoice toEntity(ReturnInvoiceDTO returnInvoiceDTO) {
-        if (returnInvoiceDTO == null) {
-            throw new IllegalArgumentException("ReturnInvoiceDTO cannot be null");
-        }
+    void updateEntityFromDto(ReturnInvoiceDTO returnInvoiceDTO, @MappingTarget ReturnInvoice returnInvoice);
 
-        ReturnInvoice returnInvoice = ReturnInvoice.builder()
-                .id(returnInvoiceDTO.getId())
-                .date(convertLocalDateTimeToTimestamp(returnInvoiceDTO.getDate()))
-                .totalAmount(returnInvoiceDTO.getTotalAmount() != null ? returnInvoiceDTO.getTotalAmount().doubleValue() : null) // Convert BigDecimal to Double
-                .status(returnInvoiceDTO.getStatus())
-                .build();
 
-        if (returnInvoiceDTO.getSupplierId() != null) {
-            Supplier supplier = new Supplier();
-            supplier.setId(returnInvoiceDTO.getSupplierId());
-            returnInvoice.setSupplier(supplier);
-        }
 
-        if (returnInvoiceDTO.getCreatedBy() != null) {
-            User user = new User();
-            user.setId(returnInvoiceDTO.getCreatedBy());
-            returnInvoice.setCreatedBy(user);
-        }
 
-        return returnInvoice;
-    }
-
-    // Helper method to convert Timestamp to LocalDateTime
-    private LocalDateTime convertTimestampToLocalDateTime(Timestamp timestamp) {
-        return timestamp != null ? timestamp.toLocalDateTime() : null;
-    }
-
-    // Helper method to convert LocalDateTime to Timestamp
-    private Timestamp convertLocalDateTimeToTimestamp(LocalDateTime localDateTime) {
-        return localDateTime != null ? Timestamp.valueOf(localDateTime) : null;
-    }
 }
+
+
+

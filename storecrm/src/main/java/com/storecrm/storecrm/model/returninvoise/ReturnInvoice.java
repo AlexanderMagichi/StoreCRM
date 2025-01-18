@@ -8,6 +8,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
@@ -63,7 +64,7 @@ public class ReturnInvoice {
     @Positive
     @Column(name = "total_amount", nullable = false)
     @Schema(description = "The total amount for the returnfromcustomer invoice.", example = "150.75")
-    private Double totalAmount;
+    private BigDecimal totalAmount;
 
     /**
      * The status of the returnfromcustomer invoice.

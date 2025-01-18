@@ -1,4 +1,4 @@
-package com.storecrm.storecrm.repository.order;
+package com.storecrm.storecrm.repository.orderlineitemrepository;
 
 
 import com.storecrm.storecrm.model.orderlineitem.OrderLineItem;

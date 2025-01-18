@@ -1,50 +1,49 @@
 package com.storecrm.storecrm.dto.returninvoice;
 
+import com.storecrm.storecrm.dto.supplier.SupplierDTO;
+import com.storecrm.storecrm.dto.user.UserDTO;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.*;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
-@Data
+/**
+ * DTO for ReturnInvoice entity.
+ * This class is used to transfer data between the layers of the application.
+ */
+@Getter
+@Setter
 @NoArgsConstructor
-@Schema(description = "Represents a return invoice in the system.")
+@AllArgsConstructor
+@Builder
+@ToString
+@Schema(description = "DTO for returnfromcustomer invoice.")
 public class ReturnInvoiceDTO {
 
-    @Schema(description = "The unique identifier for the return invoice", example = "1", accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "The unique identifier of the returnfromcustomer invoice.", example = "1")
     private Long id;
 
-    @NotNull(message = "Date cannot be null")
-    @Schema(description = "The date the return invoice was created", example = "2024-11-30T14:30:00")
-    private LocalDateTime date;
+    @NotNull
+    @Schema(description = "The date of the returnfromcustomer invoice.", example = "2024-10-17")
+    private Timestamp date;
 
-    @NotNull(message = "Supplier ID cannot be null")
-    @Schema(description = "The ID of the related supplier", example = "1")
-    private Long supplierId;
+    @NotNull
+    @Schema(description = "The supplier associated with this returnfromcustomer invoice.")
+    private SupplierDTO supplier;
 
-    @NotNull(message = "Total amount cannot be null")
-    @Positive(message = "Total amount must be positive")
-    @Schema(description = "The total amount of the return invoice", example = "100.50")
+    @NotNull
+    @Positive
+    @Schema(description = "The total amount for the returnfromcustomer invoice.", example = "150.75")
     private BigDecimal totalAmount;
 
-    @NotNull(message = "Status cannot be null")
-    @Size(min = 3, max = 20, message = "Status must be between 3 and 20 characters")
-    @Schema(description = "The status of the return invoice", example = "Processed")
+    @NotNull
+    @Schema(description = "The status of the returnfromcustomer invoice.", example = "Pending")
     private String status;
 
-    @NotNull(message = "Created by cannot be null")
-    @Schema(description = "The ID of the user who created the return invoice", example = "1")
-    private Long createdBy;
-
-    // Constructor with parameters
-    public ReturnInvoiceDTO(Long id, LocalDateTime date, Long supplierId, BigDecimal totalAmount, String status, Long createdBy) {
-        this.id = id;
-        this.date = date;
-        this.supplierId = supplierId;
-        this.totalAmount = totalAmount;
-        this.status = status;
-        this.createdBy = createdBy;
-    }
+    @NotNull
+    @Schema(description = "The user who created this returnfromcustomer invoice.")
+    private UserDTO createdBy;
 }
