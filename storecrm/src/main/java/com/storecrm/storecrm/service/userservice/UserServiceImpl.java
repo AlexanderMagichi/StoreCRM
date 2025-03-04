@@ -1,4 +1,6 @@
 package com.storecrm.storecrm.service.userservice;
+
+import com.storecrm.storecrm.exception.UserNotFoundException;
 import com.storecrm.storecrm.model.user.User;
 import com.storecrm.storecrm.repository.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,7 @@ public class UserServiceImpl implements UserService {
             user.setId(id);
             return userRepository.save(user);
         }
-        return null; // Or throw some exception indicating user not found
+        throw new UserNotFoundException(id); // Throw exception if user not found
     }
 
     @Override

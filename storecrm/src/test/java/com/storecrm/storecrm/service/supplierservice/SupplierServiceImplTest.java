@@ -46,15 +46,13 @@ class SupplierServiceImplTest {
 
     @Test
     void getSupplierById_shouldReturnSupplierResponse_whenSupplierExists() {
-        // Задаем поведение мок-объектов
+
         when(supplierRepository.findById(1L)).thenReturn(Optional.of(mockSupplier));
         when(supplierMapper.toResponseDTO(mockSupplier)).thenReturn(mockSupplierResponse);
 
 
-        // Вызываем метод, который тестируем
         SupplierDTO.SupplierResponse result = supplierService.getSupplierById(1L);
 
-        // Проверяем, что результат совпадает с ожидаемым
         assertEquals(mockSupplierResponse, result);
     }
 }
