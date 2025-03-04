@@ -1,4 +1,4 @@
-package com.storecrm.storecrm.service.proguct;
+package com.storecrm.storecrm.service.proguctservice;
 
 import com.storecrm.storecrm.dto.product.ProductDTO;
 

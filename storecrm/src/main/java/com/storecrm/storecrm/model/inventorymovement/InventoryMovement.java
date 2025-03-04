@@ -86,7 +86,8 @@ public class InventoryMovement {
     @NotNull
     @Size(max = 50)
     @Column(name = "reference_type", nullable = false)
-    @Schema(description = "The type of reference for this movement (e.g., PurchaseInvoice, ReturnInvoice)", example = "PurchaseInvoice", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The type of reference for this movement (e.g., PurchaseInvoice, ReturnInvoice)",
+            example = "PurchaseInvoice", requiredMode = Schema.RequiredMode.REQUIRED)
     private String referenceType;
 
     /**

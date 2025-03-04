@@ -1,4 +1,4 @@
-package com.storecrm.storecrm.service.supplier;
+package com.storecrm.storecrm.service.supplierservice;
 
 import com.storecrm.storecrm.dto.supplier.SupplierDTO;
 import com.storecrm.storecrm.mapper.supplier.SupplierMapper;

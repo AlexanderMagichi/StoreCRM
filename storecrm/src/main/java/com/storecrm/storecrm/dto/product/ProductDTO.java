@@ -47,11 +47,11 @@ public class ProductDTO {
     private LocalDateTime lastUpdated;
 
     @NotNull(message = "Supplier ID cannot be null")
-    @Schema(description = "The ID of the supplier of the product", example = "1")
+    @Schema(description = "The ID of the supplierservice of the product", example = "1")
     private Long supplierId;
 
     @Size(max = 100, message = "Supplier name cannot exceed 100 characters")
-    @Schema(description = "The name of the supplier of the product", example = "TechCorp")
+    @Schema(description = "The name of the supplierservice of the product", example = "TechCorp")
     private String supplierName;
 
     @Data

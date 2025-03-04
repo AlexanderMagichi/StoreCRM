@@ -65,7 +65,7 @@ public class PurchaseInvoiceMapper {
                 .status(purchaseInvoiceDTO.getStatus())
                 .build();
 
-        // Create Supplier entity and set the supplier ID
+        // Create Supplier entity and set the supplierservice ID
         Supplier supplier = new Supplier();
         supplier.setId(purchaseInvoiceDTO.getSupplierId());
         purchaseInvoice.setSupplier(supplier);

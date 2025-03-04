@@ -31,7 +31,7 @@ public class ReturnInvoiceDTO {
     private Timestamp date;
 
     @NotNull
-    @Schema(description = "The supplier associated with this returnfromcustomer invoice.")
+    @Schema(description = "The supplierservice associated with this returnfromcustomer invoice.")
     private SupplierDTO supplier;
 
     @NotNull

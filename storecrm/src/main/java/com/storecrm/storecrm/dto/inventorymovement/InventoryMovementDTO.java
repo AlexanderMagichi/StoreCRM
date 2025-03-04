@@ -36,7 +36,7 @@ public class InventoryMovementDTO {
     private String movementType;
 
     @Size(max = 255, message = "Description cannot exceed 255 characters")
-    @Schema(description = "A detailed description of the inventory movement", example = "Product received from supplier", required = false)
+    @Schema(description = "A detailed description of the inventory movement", example = "Product received from supplierservice", required = false)
     private String description;
 
     @Size(max = 50, message = "Reference type cannot exceed 50 characters")

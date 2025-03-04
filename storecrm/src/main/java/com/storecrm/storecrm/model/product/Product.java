@@ -13,7 +13,7 @@ import java.util.Objects;
 
 /**
  * Represents a product in the store's inventory.
- * This entity is used to store information about products, including their price, stock, and supplier.
+ * This entity is used to store information about products, including their price, stock, and supplierservice.
  */
 @Getter
 @Setter
@@ -23,7 +23,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "product")
-@Schema(description = "Represents a product in the store's inventory, storing information about the product's price, stock, and supplier.")
+@Schema(description = "Represents a product in the store's inventory, storing information about the product's price, stock, and supplierservice.")
 public class Product {
 
     /**
@@ -91,13 +91,13 @@ public class Product {
     private LocalDateTime lastUpdated;
 
     /**
-     * The supplier associated with this product.
+     * The supplierservice associated with this product.
      * This is a foreign key reference to the Supplier entity.
      */
     @NotNull
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false, foreignKey = @ForeignKey(name = "fk_product_supplier"))
-    @Schema(description = "The supplier associated with this product", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The supplierservice associated with this product", requiredMode = Schema.RequiredMode.REQUIRED)
     private Supplier supplier;
 
     /**

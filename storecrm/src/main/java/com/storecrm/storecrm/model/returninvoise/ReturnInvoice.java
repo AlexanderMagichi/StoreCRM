@@ -46,14 +46,14 @@ public class ReturnInvoice {
     private java.sql.Timestamp date;
 
     /**
-     * The supplier associated with this returnfromcustomer invoice.
+     * The supplierservice associated with this returnfromcustomer invoice.
      * This is a required field.
      */
     @NotNull
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false, foreignKey = @ForeignKey(name = "fk_return_invoice_supplier"))
-    @Schema(description = "The supplier associated with this returnfromcustomer invoice.")
-    @ToString.Include(name = "supplier")
+    @Schema(description = "The supplierservice associated with this returnfromcustomer invoice.")
+    @ToString.Include(name = "supplierservice")
     private Supplier supplier;
 
     /**

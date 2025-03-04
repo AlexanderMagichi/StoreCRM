@@ -1,10 +1,9 @@
-package com.storecrm.storecrm.service.supplier;
+package com.storecrm.storecrm.service.supplierservice;
 
 import com.storecrm.storecrm.dto.supplier.SupplierDTO;
 import com.storecrm.storecrm.mapper.supplier.SupplierMapper;
 import com.storecrm.storecrm.model.supplier.Supplier;
 import com.storecrm.storecrm.repository.supplier.SupplierRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
