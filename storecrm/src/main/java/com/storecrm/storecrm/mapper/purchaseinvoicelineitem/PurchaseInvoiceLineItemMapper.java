@@ -25,7 +25,7 @@ public class PurchaseInvoiceLineItemMapper {
         return new PurchaseInvoiceLineItemDTO(
                 lineItem.getId(),
                 lineItem.getInvoice() != null ? lineItem.getInvoice().getId() : null, // Get invoice ID
-                lineItem.getProduct() != null ? lineItem.getProduct().getId() : null, // Get product ID
+                lineItem.getProduct() != null ? lineItem.getProduct().getId() : null, // Get productdto ID
                 lineItem.getQuantity(),
                 lineItem.getUnitPrice() != null ? BigDecimal.valueOf(lineItem.getUnitPrice()) : null, // Convert unitPrice to BigDecimal
                 lineItem.getTotalAmount() != null ? BigDecimal.valueOf(lineItem.getTotalAmount()) : null // Convert totalAmount to BigDecimal

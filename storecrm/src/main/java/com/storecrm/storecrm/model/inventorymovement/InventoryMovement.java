@@ -34,12 +34,12 @@ public class InventoryMovement {
     private Long id;
 
     /**
-     * The product ID associated with this inventory movement.
-     * This field is required and must reference a valid product.
+     * The productdto ID associated with this inventory movement.
+     * This field is required and must reference a valid productdto.
      */
     @NotNull
     @Column(name = "product_id", nullable = false)
-    @Schema(description = "The product ID associated with this inventory movement", example = "2001", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The productdto ID associated with this inventory movement", example = "2001", requiredMode = Schema.RequiredMode.REQUIRED)
     private Long productId;
 
     /**
@@ -76,7 +76,7 @@ public class InventoryMovement {
      */
     @Size(max = 255)
     @Column(name = "description")
-    @Schema(description = "A description of the inventory movement", example = "Arrival of 50 units of product")
+    @Schema(description = "A description of the inventory movement", example = "Arrival of 50 units of productdto")
     private String description;
 
     /**
@@ -91,11 +91,11 @@ public class InventoryMovement {
     private String referenceType;
 
     /**
-     * The ID of the referenced entity (e.g., the invoice or order associated with the movement).
+     * The ID of the referenced entity (e.g., the invoice or orderdto associated with the movement).
      * This field is optional.
      */
     @Column(name = "reference_id")
-    @Schema(description = "The ID of the referenced entity (e.g., invoice or order)", example = "3001")
+    @Schema(description = "The ID of the referenced entity (e.g., invoice or orderdto)", example = "3001")
     private Long referenceId;
 
     /**

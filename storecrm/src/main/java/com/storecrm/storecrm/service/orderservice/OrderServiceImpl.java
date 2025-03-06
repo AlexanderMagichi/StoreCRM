@@ -36,7 +36,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Optional<Order> updateOrder(Long id, Order order) {
         return orderRepository.findById(id).map(existingOrder -> {
-            // Update fields in the existing order
+            // Update fields in the existing orderdto
             existingOrder.setDate(order.getDate());
             existingOrder.setCustomerId(order.getCustomerId());
             existingOrder.setStatus(order.getStatus());

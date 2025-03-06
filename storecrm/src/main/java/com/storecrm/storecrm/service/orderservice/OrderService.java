@@ -11,18 +11,18 @@ import java.util.Optional;
 public interface OrderService {
 
     /**
-     * Creates a new order.
+     * Creates a new orderdto.
      *
-     * @param order the order to create.
-     * @return the created order.
+     * @param order the orderdto to create.
+     * @return the created orderdto.
      */
     Order createOrder(Order order);
 
     /**
-     * Retrieves an order by its ID.
+     * Retrieves an orderdto by its ID.
      *
-     * @param id the ID of the order to retrieve.
-     * @return an Optional containing the order if found, or Optional.empty if not.
+     * @param id the ID of the orderdto to retrieve.
+     * @return an Optional containing the orderdto if found, or Optional.empty if not.
      */
     Optional<Order> getOrderById(Long id);
 
@@ -34,19 +34,19 @@ public interface OrderService {
     List<Order> getAllOrders();
 
     /**
-     * Updates an existing order.
+     * Updates an existing orderdto.
      *
-     * @param id    the ID of the order to update.
-     * @param order the order data to update.
-     * @return the updated order, or Optional.empty if the order was not found.
+     * @param id    the ID of the orderdto to update.
+     * @param order the orderdto data to update.
+     * @return the updated orderdto, or Optional.empty if the orderdto was not found.
      */
     Optional<Order> updateOrder(Long id, Order order);
 
     /**
-     * Deletes an order by its ID.
+     * Deletes an orderdto by its ID.
      *
-     * @param id the ID of the order to delete.
-     * @return true if the order was deleted, false otherwise.
+     * @param id the ID of the orderdto to delete.
+     * @return true if the orderdto was deleted, false otherwise.
      */
     boolean deleteOrder(Long id);
 }

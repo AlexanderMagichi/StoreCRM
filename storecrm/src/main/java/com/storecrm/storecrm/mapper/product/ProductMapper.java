@@ -1,6 +1,6 @@
 package com.storecrm.storecrm.mapper.product;
 
-import com.storecrm.storecrm.dto.product.ProductDTO;
+import com.storecrm.storecrm.dto.productdto.ProductDTO;
 import com.storecrm.storecrm.model.product.Product;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +16,7 @@ public class ProductMapper {
      * Converts a Product entity to a ProductDTO.
      *
      * @param product the Product entity.
-     * @return ProductDTO.ProductResponse if product is not null.
+     * @return ProductDTO.ProductResponse if productdto is not null.
      */
     public ProductDTO.ProductResponse toDTO(Product product) {
         if (product == null) {
@@ -32,7 +32,7 @@ public class ProductMapper {
     /**
      * Converts a ProductDTO.Create to a Product entity.
      *
-     * @param productDTO the DTO for product creation.
+     * @param productDTO the DTO for productdto creation.
      * @return the Product entity.
      */
     public Product toEntity(ProductDTO.Create productDTO) {
@@ -48,7 +48,7 @@ public class ProductMapper {
     /**
      * Converts an Optional<ProductDTO.Create> to a Product entity.
      *
-     * @param productDTO Optional containing the DTO for product creation.
+     * @param productDTO Optional containing the DTO for productdto creation.
      * @return Optional containing the Product entity, or Optional.empty if productDTO is empty.
      */
     public Optional<Product> toEntity(Optional<ProductDTO.Create> productDTO) {

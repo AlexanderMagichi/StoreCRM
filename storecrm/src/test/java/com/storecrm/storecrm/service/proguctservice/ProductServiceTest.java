@@ -1,6 +1,6 @@
 package com.storecrm.storecrm.service.proguctservice;
 
-import com.storecrm.storecrm.dto.product.ProductDTO;
+import com.storecrm.storecrm.dto.productdto.ProductDTO;
 import com.storecrm.storecrm.mapper.product.ProductMapper;
 import com.storecrm.storecrm.model.product.Product;
 import com.storecrm.storecrm.repository.product.ProductRepository;

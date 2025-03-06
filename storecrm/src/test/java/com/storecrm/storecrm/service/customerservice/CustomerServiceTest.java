@@ -2,7 +2,6 @@ package com.storecrm.storecrm.service.customerservice;
 
 import com.storecrm.storecrm.model.customer.Customer;
 import com.storecrm.storecrm.repository.customer.CustomerRepository;
-import com.storecrm.storecrm.service.customer.CustomerServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

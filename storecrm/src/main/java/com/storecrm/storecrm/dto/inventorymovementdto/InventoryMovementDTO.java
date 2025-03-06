@@ -1,4 +1,4 @@
-package com.storecrm.storecrm.dto.inventorymovement;
+package com.storecrm.storecrm.dto.inventorymovementdto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
@@ -19,7 +19,7 @@ public class InventoryMovementDTO {
     private Long id;
 
     @NotNull(message = "Product ID cannot be null")
-    @Schema(description = "The ID of the product for the movement", example = "101", required = true)
+    @Schema(description = "The ID of the productdto for the movement", example = "101", required = true)
     private Long productId;
 
     @NotNull(message = "Movement date cannot be null")
@@ -27,7 +27,7 @@ public class InventoryMovementDTO {
     private LocalDateTime movementDate;
 
     @Min(value = 1, message = "Quantity must be at least 1")
-    @Schema(description = "The quantity of the product being moved", example = "100", required = true)
+    @Schema(description = "The quantity of the productdto being moved", example = "100", required = true)
     private Integer quantity;
 
     @NotNull(message = "Movement type cannot be null")

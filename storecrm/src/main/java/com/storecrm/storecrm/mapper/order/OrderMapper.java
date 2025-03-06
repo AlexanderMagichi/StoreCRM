@@ -1,6 +1,6 @@
 package com.storecrm.storecrm.mapper.order;
 
-import com.storecrm.storecrm.dto.order.OrderDTO;
+import com.storecrm.storecrm.dto.orderdto.OrderDTO;
 import com.storecrm.storecrm.model.order.Order;
 import org.springframework.stereotype.Component;
 
@@ -42,7 +42,7 @@ public class OrderMapper {
             throw new IllegalArgumentException("OrderDTO cannot be null");
         }
 
-        // Removing redundant variable 'order' by directly returning the built entity
+        // Removing redundant variable 'orderdto' by directly returning the built entity
         return Order.builder()
                 .id(orderDTO.getId())
                 .date(Timestamp.valueOf(orderDTO.getDate()))  // Convert LocalDateTime to Timestamp

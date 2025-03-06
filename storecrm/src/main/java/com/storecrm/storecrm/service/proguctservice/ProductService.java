@@ -1,12 +1,12 @@
 package com.storecrm.storecrm.service.proguctservice;
 
-import com.storecrm.storecrm.dto.product.ProductDTO;
+import com.storecrm.storecrm.dto.productdto.ProductDTO;
 
 import java.util.List;
 
 /**
  * Interface for managing products.
- * Defines methods for retrieving, creating, and deleting product data.
+ * Defines methods for retrieving, creating, and deleting productdto data.
  */
 public interface ProductService {
 
@@ -18,25 +18,25 @@ public interface ProductService {
     List<ProductDTO.ProductResponse> getAllProducts();
 
     /**
-     * Retrieves a product by its ID.
+     * Retrieves a productdto by its ID.
      *
-     * @param id the ID of the product to retrieve.
-     * @return a ProductResponse DTO representing the retrieved product.
+     * @param id the ID of the productdto to retrieve.
+     * @return a ProductResponse DTO representing the retrieved productdto.
      */
     ProductDTO.ProductResponse getProductById(Long id);
 
     /**
-     * Creates a new product and saves it to the database.
+     * Creates a new productdto and saves it to the database.
      *
-     * @param productDTO the data for the product to create.
-     * @return a ProductResponse DTO representing the created product.
+     * @param productDTO the data for the productdto to create.
+     * @return a ProductResponse DTO representing the created productdto.
      */
     ProductDTO.ProductResponse createProduct(ProductDTO.Create productDTO);
 
     /**
-     * Deletes a product by its ID.
+     * Deletes a productdto by its ID.
      *
-     * @param id the ID of the product to delete.
+     * @param id the ID of the productdto to delete.
      */
     void deleteProduct(Long id);
 }

@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
- * Represents a returnfromcustomer of a product from an order.
+ * Represents a returnfromcustomer of a productdto from an orderdto.
  * This entity stores information about returns made by customers.
  */
 @Getter
@@ -20,7 +20,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "return_item")
-@Schema(description = "Represents a returnfromcustomer of a product from an order.")
+@Schema(description = "Represents a returnfromcustomer of a productdto from an orderdto.")
 public class Return {
 
     /**
@@ -34,30 +34,30 @@ public class Return {
     private Long id;
 
     /**
-     * The ID of the order from which this returnfromcustomer is made.
+     * The ID of the orderdto from which this returnfromcustomer is made.
      * This field is required.
      */
     @NotNull
     @Column(name = "order_id", nullable = false)
-    @Schema(description = "The ID of the order from which this returnfromcustomer is made.", example = "12345")
+    @Schema(description = "The ID of the orderdto from which this returnfromcustomer is made.", example = "12345")
     private Long orderId;
 
     /**
-     * The ID of the product being returned.
+     * The ID of the productdto being returned.
      * This field is required.
      */
     @NotNull
     @Column(name = "product_id", nullable = false)
-    @Schema(description = "The ID of the product being returned.", example = "98765")
+    @Schema(description = "The ID of the productdto being returned.", example = "98765")
     private Long productId;
 
     /**
-     * The quantity of the product being returned.
+     * The quantity of the productdto being returned.
      * This field is required.
      */
     @NotNull
     @Column(name = "quantity", nullable = false)
-    @Schema(description = "The quantity of the product being returned.", example = "2")
+    @Schema(description = "The quantity of the productdto being returned.", example = "2")
     private Integer quantity;
 
     /**

@@ -1,7 +1,7 @@
 package com.storecrm.storecrm.mapper.inventorymovement;
 
 import com.storecrm.storecrm.model.inventorymovement.InventoryMovement;
-import com.storecrm.storecrm.dto.inventorymovement.InventoryMovementDTO;
+import com.storecrm.storecrm.dto.inventorymovementdto.InventoryMovementDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

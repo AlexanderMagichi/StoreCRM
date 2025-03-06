@@ -1,6 +1,6 @@
 package com.storecrm.storecrm.mapper.orderlineitem;
 
-import com.storecrm.storecrm.dto.orderlineitem.OrderLineItemDTO;
+import com.storecrm.storecrm.dto.orderlineitemdto.OrderLineItemDTO;
 import com.storecrm.storecrm.model.orderlineitem.OrderLineItem;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

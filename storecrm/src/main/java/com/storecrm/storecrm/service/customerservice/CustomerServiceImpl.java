@@ -1,4 +1,4 @@
-package com.storecrm.storecrm.service.customer;
+package com.storecrm.storecrm.service.customerservice;
 
 import com.storecrm.storecrm.model.customer.Customer;
 import com.storecrm.storecrm.repository.customer.CustomerRepository;

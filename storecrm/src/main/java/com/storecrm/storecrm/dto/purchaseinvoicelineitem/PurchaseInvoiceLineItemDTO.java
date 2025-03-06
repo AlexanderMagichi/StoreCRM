@@ -20,17 +20,17 @@ public class PurchaseInvoiceLineItemDTO {
     private Long invoiceId;
 
     @NotNull(message = "Product ID cannot be null")
-    @Schema(description = "The ID of the product for the line item", example = "1")
+    @Schema(description = "The ID of the productdto for the line item", example = "1")
     private Long productId;
 
     @NotNull(message = "Quantity cannot be null")
     @Min(value = 1, message = "Quantity must be at least 1")
-    @Schema(description = "The quantity of the product in the purchase invoice line item", example = "10")
+    @Schema(description = "The quantity of the productdto in the purchase invoice line item", example = "10")
     private Integer quantity;
 
     @NotNull(message = "Price cannot be null")
     @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
-    @Schema(description = "The price of the product for the line item", example = "100.00")
+    @Schema(description = "The price of the productdto for the line item", example = "100.00")
     private BigDecimal price;
 
     @NotNull(message = "Total Amount cannot be null")
