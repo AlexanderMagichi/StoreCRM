@@ -2,7 +2,7 @@ package com.storecrm.storecrm.service.inventorymovement;
 
 import com.storecrm.storecrm.exception.InventoryMovementNotFoundException;
 import com.storecrm.storecrm.model.inventorymovement.InventoryMovement;
-import com.storecrm.storecrm.repository.inventorymovementrepository.InventoryMovementRepository;
+import com.storecrm.storecrm.repository.inventorymovement.InventoryMovementRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

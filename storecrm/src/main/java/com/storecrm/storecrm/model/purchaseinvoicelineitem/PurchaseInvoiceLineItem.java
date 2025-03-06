@@ -22,7 +22,7 @@ import java.util.Objects;
 @ToString
 @Entity
 @Table(name = "purchase_invoice_line_item")
-@Schema(description = "Represents a line item in a purchase invoice, containing productdto details and quantity.")
+@Schema(description = "Represents a line item in a purchase invoice, containing product details and quantity.")
 public class PurchaseInvoiceLineItem {
 
     /**
@@ -47,34 +47,34 @@ public class PurchaseInvoiceLineItem {
     private PurchaseInvoice invoice;
 
     /**
-     * The productdto associated with this line item.
+     * The product associated with this line item.
      * This is a required field.
      */
     @NotNull
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(name = "fk_purchase_invoice_line_item_product"))
-    @ToString.Include(name = "productdto")
-    @Schema(description = "The productdto associated with this line item.")
+    @ToString.Include(name = "product")
+    @Schema(description = "The product associated with this line item.")
     private Product product;
 
     /**
-     * The quantity of the productdto in this line item.
+     * The quantity of the product in this line item.
      * This is a required field and must be positive.
      */
     @NotNull
     @Positive
     @Column(name = "quantity", nullable = false)
-    @Schema(description = "The quantity of the productdto.", example = "5")
+    @Schema(description = "The quantity of the product.", example = "5")
     private Integer quantity;
 
     /**
-     * The unit price of the productdto in this line item.
+     * The unit price of the product in this line item.
      * This is a required field and must be positive.
      */
     @NotNull
     @Positive
     @Column(name = "unit_price", nullable = false)
-    @Schema(description = "The unit price of the productdto in this line item.", example = "15.99")
+    @Schema(description = "The unit price of the product in this line item.", example = "15.99")
     private Double unitPrice;
 
     /**

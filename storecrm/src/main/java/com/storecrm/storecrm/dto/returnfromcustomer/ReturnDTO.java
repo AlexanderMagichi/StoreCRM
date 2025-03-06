@@ -9,23 +9,23 @@ import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
-@Schema(description = "Represents a return from a customerservice.")
+@Schema(description = "Represents a return from a customer.")
 public class ReturnDTO {
 
     @Schema(description = "The unique identifier for the return", example = "1", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     @NotNull(message = "Order ID cannot be null")
-    @Schema(description = "The ID of the related orderdto", example = "1")
+    @Schema(description = "The ID of the related order", example = "1")
     private Long orderId;
 
     @NotNull(message = "Product ID cannot be null")
-    @Schema(description = "The ID of the returned productdto", example = "1")
+    @Schema(description = "The ID of the returned product", example = "1")
     private Long productId;
 
     @NotNull(message = "Quantity cannot be null")
     @Min(value = 1, message = "Quantity must be at least 1")
-    @Schema(description = "The quantity of the productdto being returned", example = "2")
+    @Schema(description = "The quantity of the product being returned", example = "2")
     private Integer quantity;
 
     @NotBlank(message = "Reason cannot be blank")

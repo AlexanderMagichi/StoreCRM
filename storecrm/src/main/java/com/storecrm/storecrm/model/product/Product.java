@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 /**
- * Represents a productdto in the store's inventory.
- * This entity is used to store information about products, including their price, stock, and supplierservice.
+ * Represents a product in the store's inventory.
+ * This entity is used to store information about products, including their price, stock, and supplier.
  */
 @Getter
 @Setter
@@ -22,82 +22,82 @@ import java.util.Objects;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "productdto")
-@Schema(description = "Represents a productdto in the store's inventory, storing information about the productdto's price, stock, and supplierservice.")
+@Table(name = "product")
+@Schema(description = "Represents a product in the store's inventory, storing information about the product's price, stock, and supplier.")
 public class Product {
 
     /**
-     * The unique identifier for the productdto.
+     * The unique identifier for the product.
      * Generated automatically by the database.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    @Schema(description = "The unique identifier for the productdto", example = "1001", accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "The unique identifier for the product", example = "1001", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     /**
-     * The article number (art) of the productdto, used for uniquely identifying products beyond just the ID.
+     * The article number (art) of the product, used for uniquely identifying products beyond just the ID.
      * This field is required and must be unique.
      */
     @NotNull
     @Column(name = "art", nullable = false, unique = true)
-    @Schema(description = "The article number (art) of the productdto", example = "ART12345", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The article number (art) of the product", example = "ART12345", requiredMode = Schema.RequiredMode.REQUIRED)
     private String art;
 
     /**
-     * The name of the productdto.
+     * The name of the product.
      * This is a required field.
      */
     @NotNull
     @Column(name = "name", nullable = false)
-    @Schema(description = "The name of the productdto", example = "Laptop Pro", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The name of the product", example = "Laptop Pro", requiredMode = Schema.RequiredMode.REQUIRED)
     private String name;
 
     /**
-     * A detailed description of the productdto.
+     * A detailed description of the product.
      * Can contain more text as it is stored as a Large Object (LOB) in the database.
      */
     @Lob
     @Column(name = "description")
-    @Schema(description = "A detailed description of the productdto", example = "High-performance laptop with 16GB RAM and 1TB SSD")
+    @Schema(description = "A detailed description of the product", example = "High-performance laptop with 16GB RAM and 1TB SSD")
     private String description;
 
     /**
-     * The price of the productdto.
+     * The price of the product.
      * This is a required field.
      */
     @NotNull
     @Column(name = "price", nullable = false)
-    @Schema(description = "The price of the productdto", example = "1499.99", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The price of the product", example = "1499.99", requiredMode = Schema.RequiredMode.REQUIRED)
     private BigDecimal price;
 
     /**
-     * The current stock level of the productdto.
-     * Represents how many items of this productdto are available.
+     * The current stock level of the product.
+     * Represents how many items of this product are available.
      */
     @NotNull
     @Column(name = "stock", nullable = false)
-    @Schema(description = "The current stock level of the productdto", example = "50", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The current stock level of the product", example = "50", requiredMode = Schema.RequiredMode.REQUIRED)
     private Integer stock;
 
     /**
-     * The date and time when the productdto was last updated.
-     * Used to track changes in the productdto's details.
+     * The date and time when the product was last updated.
+     * Used to track changes in the product's details.
      */
     @NotNull
     @Column(name = "last_updated", nullable = false)
-    @Schema(description = "The date and time when the productdto was last updated", example = "2024-10-15 12:00:00", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The date and time when the product was last updated", example = "2024-10-15 12:00:00", requiredMode = Schema.RequiredMode.REQUIRED)
     private LocalDateTime lastUpdated;
 
     /**
-     * The supplierservice associated with this productdto.
+     * The supplier associated with this product.
      * This is a foreign key reference to the Supplier entity.
      */
     @NotNull
     @ManyToOne
     @JoinColumn(name = "supplier_id", nullable = false, foreignKey = @ForeignKey(name = "fk_product_supplier"))
-    @Schema(description = "The supplierservice associated with this productdto", requiredMode = Schema.RequiredMode.REQUIRED)
+    @Schema(description = "The supplier associated with this product", requiredMode = Schema.RequiredMode.REQUIRED)
     private Supplier supplier;
 
     /**
@@ -124,9 +124,9 @@ public class Product {
     }
 
     /**
-     * Generates a hash code based on the ID of the productdto.
+     * Generates a hash code based on the ID of the product.
      *
-     * @return hash code for the productdto.
+     * @return hash code for the product.
      */
     @Override
     public final int hashCode() {

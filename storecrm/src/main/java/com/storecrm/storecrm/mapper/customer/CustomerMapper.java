@@ -1,6 +1,6 @@
 package com.storecrm.storecrm.mapper.customer;
 
-import com.storecrm.storecrm.dto.customerdto.CustomerDTO;
+import com.storecrm.storecrm.dto.customer.CustomerDTO;
 import com.storecrm.storecrm.model.customer.Customer;
 import org.springframework.stereotype.Component;
 

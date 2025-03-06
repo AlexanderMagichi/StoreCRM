@@ -1,6 +1,6 @@
 package com.storecrm.storecrm.service.returnservice;
 import com.storecrm.storecrm.model.returninvoise.ReturnInvoice;
-import com.storecrm.storecrm.repository.returninvoicerepository.ReturnInvoiceRepository;
+import com.storecrm.storecrm.repository.returninvoice.ReturnInvoiceRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;

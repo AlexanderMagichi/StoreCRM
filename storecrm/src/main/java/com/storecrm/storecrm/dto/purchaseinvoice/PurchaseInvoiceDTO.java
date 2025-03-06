@@ -23,7 +23,7 @@ public class PurchaseInvoiceDTO {
     private LocalDateTime date;
 
     @NotNull(message = "Supplier ID cannot be null")
-    @Schema(description = "The ID of the supplierservice for the purchase invoice", example = "1")
+    @Schema(description = "The ID of the supplier for the purchase invoice", example = "1")
     private Long supplierId;
 
     @NotNull(message = "Total amount cannot be null")

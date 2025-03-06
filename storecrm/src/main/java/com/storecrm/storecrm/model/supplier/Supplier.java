@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * Represents a supplierservice in the store's inventory system.
+ * Represents a supplier in the store's inventory system.
  * This entity stores information about suppliers, including their contact details.
  */
 @Getter
@@ -20,61 +20,61 @@ import java.util.Set;
 @Builder
 @ToString
 @Entity
-@Table(name = "supplierservice")
-@Schema(description = "Represents a supplierservice providing products to the store.")
+@Table(name = "supplier")
+@Schema(description = "Represents a supplier providing products to the store.")
 public class Supplier {
 
     /**
-     * The unique identifier for the supplierservice.
+     * The unique identifier for the supplier.
      * Generated automatically by the database.
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
-    @Schema(description = "The unique identifier of the supplierservice.", example = "1")
+    @Schema(description = "The unique identifier of the supplier.", example = "1")
     private Long id;
 
     /**
-     * The name of the supplierservice.
+     * The name of the supplier.
      * This is a required field.
      */
     @NotNull
     @Column(name = "name", nullable = false)
-    @Schema(description = "The name of the supplierservice.", example = "ABC Supplies Ltd.")
+    @Schema(description = "The name of the supplier.", example = "ABC Supplies Ltd.")
     private String name;
 
     /**
-     * The address of the supplierservice.
+     * The address of the supplier.
      * This field is optional.
      */
     @Column(name = "address")
-    @Schema(description = "The address of the supplierservice.", example = "123 Market Street, Cityville")
+    @Schema(description = "The address of the supplier.", example = "123 Market Street, Cityville")
     private String address;
 
     /**
-     * The email of the supplierservice.
+     * The email of the supplier.
      * This is a required field and must be unique.
      */
     @NotNull
     @Column(name = "email", nullable = false, unique = true)
-    @Schema(description = "The email address of the supplierservice.", example = "supplierservice@example.com")
+    @Schema(description = "The email address of the supplier.", example = "supplier@example.com")
     private String email;
 
     /**
-     * The phone number of the supplierservice.
+     * The phone number of the supplier.
      * This field is optional.
      */
     @Column(name = "phone")
-    @Schema(description = "The phone number of the supplierservice.", example = "+123456789")
+    @Schema(description = "The phone number of the supplier.", example = "+123456789")
     private String phone;
 
     /**
-     * The products supplied by this supplierservice.
-     * This is a one-to-many relationship where one supplierservice can supply many products.
+     * The products supplied by this supplier.
+     * This is a one-to-many relationship where one supplier can supply many products.
      */
     @OneToMany(mappedBy = "supplier", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude // Avoid circular reference in toString()
-    @Schema(description = "The list of products supplied by this supplierservice.")
+    @Schema(description = "The list of products supplied by this supplier.")
     private Set<Product> products;
 
     /**
@@ -94,9 +94,9 @@ public class Supplier {
     }
 
     /**
-     * Generates a hash code based on the ID of the supplierservice.
+     * Generates a hash code based on the ID of the supplier.
      *
-     * @return hash code for the supplierservice.
+     * @return hash code for the supplier.
      */
     @Override
     @Schema(hidden = true)

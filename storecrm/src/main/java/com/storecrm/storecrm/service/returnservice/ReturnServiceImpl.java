@@ -1,6 +1,6 @@
 package com.storecrm.storecrm.service.returnservice;
 import com.storecrm.storecrm.model.returninvoise.ReturnInvoice;
-import com.storecrm.storecrm.repository.returninvoicerepository.ReturnInvoiceRepository;
+import com.storecrm.storecrm.repository.returninvoice.ReturnInvoiceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

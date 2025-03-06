@@ -2,13 +2,12 @@ package com.storecrm.storecrm.service.inventorymovement;
 
 import com.storecrm.storecrm.exception.InventoryMovementNotFoundException;
 import com.storecrm.storecrm.model.inventorymovement.InventoryMovement;
-import com.storecrm.storecrm.repository.inventorymovementrepository.InventoryMovementRepository;
+import com.storecrm.storecrm.repository.inventorymovement.InventoryMovementRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.List;
