@@ -1,10 +1,14 @@
 package com.storecrm.storecrm.service.returnservice;
+
 import com.storecrm.storecrm.model.returninvoise.ReturnInvoice;
+import com.storecrm.storecrm.repository.product.ProductRepository;
 import com.storecrm.storecrm.repository.returninvoice.ReturnInvoiceRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.*;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
@@ -15,23 +19,23 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 /**
- * Test class for {@link ReturnServiceImpl}.
- * Contains unit tests for the main methods of the service.
+ * Unit test class for {@link ReturnServiceImpl}.
+ * Uses Mockito to mock dependencies and test the service logic in isolation.
  */
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class ReturnServiceImplTest {
 
     @Mock
     private ReturnInvoiceRepository returnInvoiceRepository;
+
+    @Mock
+    private ProductRepository productRepository;
 
     @InjectMocks
     private ReturnServiceImpl returnService;
 
     private ReturnInvoice returnInvoice;
 
-    /**
-     * Set up test data for each test method.
-     */
     @BeforeEach
     public void setUp() {
         returnInvoice = ReturnInvoice.builder()
@@ -42,9 +46,6 @@ public class ReturnServiceImplTest {
                 .build();
     }
 
-    /**
-     * Test the method {@link ReturnServiceImpl#getAllReturns()}.
-     */
     @Test
     public void testGetAllReturns() {
         when(returnInvoiceRepository.findAll()).thenReturn(List.of(returnInvoice));
@@ -56,9 +57,6 @@ public class ReturnServiceImplTest {
         assertEquals(returnInvoice, returns.get(0));
     }
 
-    /**
-     * Test the method {@link ReturnServiceImpl#getReturnById(Long)} when return is found.
-     */
     @Test
     public void testGetReturnById_Found() {
         when(returnInvoiceRepository.findById(1L)).thenReturn(Optional.of(returnInvoice));
@@ -69,9 +67,6 @@ public class ReturnServiceImplTest {
         assertEquals(returnInvoice, foundReturn.get());
     }
 
-    /**
-     * Test the method {@link ReturnServiceImpl#getReturnById(Long)} when return is not found.
-     */
     @Test
     public void testGetReturnById_NotFound() {
         when(returnInvoiceRepository.findById(1L)).thenReturn(Optional.empty());
@@ -81,9 +76,6 @@ public class ReturnServiceImplTest {
         assertFalse(foundReturn.isPresent());
     }
 
-    /**
-     * Test the method {@link ReturnServiceImpl#createReturn(ReturnInvoice)}.
-     */
     @Test
     public void testCreateReturn() {
         when(returnInvoiceRepository.save(returnInvoice)).thenReturn(returnInvoice);
@@ -94,9 +86,6 @@ public class ReturnServiceImplTest {
         assertEquals(returnInvoice, createdReturn);
     }
 
-    /**
-     * Test the method {@link ReturnServiceImpl#updateReturn(ReturnInvoice)} when return exists.
-     */
     @Test
     public void testUpdateReturn() {
         when(returnInvoiceRepository.existsById(1L)).thenReturn(true);
@@ -108,9 +97,6 @@ public class ReturnServiceImplTest {
         assertEquals(returnInvoice, updatedReturn);
     }
 
-    /**
-     * Test the method {@link ReturnServiceImpl#updateReturn(ReturnInvoice)} when return does not exist.
-     */
     @Test
     public void testUpdateReturn_NotFound() {
         when(returnInvoiceRepository.existsById(1L)).thenReturn(false);
@@ -122,9 +108,6 @@ public class ReturnServiceImplTest {
         assertEquals("Return invoice does not exist", exception.getMessage());
     }
 
-    /**
-     * Test the method {@link ReturnServiceImpl#deleteReturn(Long)} when return exists.
-     */
     @Test
     public void testDeleteReturn() {
         when(returnInvoiceRepository.existsById(1L)).thenReturn(true);
@@ -134,9 +117,6 @@ public class ReturnServiceImplTest {
         verify(returnInvoiceRepository, times(1)).deleteById(1L);
     }
 
-    /**
-     * Test the method {@link ReturnServiceImpl#deleteReturn(Long)} when return does not exist.
-     */
     @Test
     public void testDeleteReturn_NotFound() {
         when(returnInvoiceRepository.existsById(1L)).thenReturn(false);
