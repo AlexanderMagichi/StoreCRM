@@ -101,7 +101,7 @@ public class Product {
     private Supplier supplier;
 
     /**
-     * Determines whether two Product objects are equal based on their ID.
+     * Determines whether two ProductDTO objects are equal based on their ID.
      * Uses pattern matching for instanceof.
      *
      * @param o the other object to compare to.

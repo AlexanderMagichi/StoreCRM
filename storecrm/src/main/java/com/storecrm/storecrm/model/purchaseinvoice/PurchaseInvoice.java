@@ -1,5 +1,6 @@
 package com.storecrm.storecrm.model.purchaseinvoice;
 
+import com.storecrm.storecrm.model.purchaseinvoicelineitem.PurchaseInvoiceLineItem;
 import com.storecrm.storecrm.model.supplier.Supplier;
 import com.storecrm.storecrm.model.user.User;
 import io.swagger.v3.oas.annotations.media.Schema;

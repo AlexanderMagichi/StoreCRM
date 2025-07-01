@@ -9,6 +9,7 @@ import lombok.*;
 
 import java.util.Objects;
 
+
 /**
  * Represents a customer in the system.
  * This entity stores information about customers.
